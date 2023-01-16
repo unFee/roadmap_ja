@@ -1,1 +1,7 @@
-/node_modules
+.cache
+_site
+node_modules
+.idea
+.DS_Store
+bin/developer-roadmap
+
