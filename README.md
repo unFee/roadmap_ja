@@ -4,8 +4,10 @@
 
 ![](https://i.imgur.com/waxVImv.png)
 
-# next.roadmap.sh
-WIP version of roadmap.sh built with 11ty and Tailwind.
+## これは?
+
+https://roadmap.sh/ 様のものを自分にわかりやすいように和訳したもの。
+
 
 ## Development
 
