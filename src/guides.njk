@@ -1,0 +1,27 @@
+---
+layout: layouts/base.njk
+seo:
+  title: "Guides - roadmap.sh"
+  description: "Detailed guides on Software Engineering Topics"
+sitemap:
+  priority: 1
+  changefreq: monthly
+tags:
+  - main-sitemap
+---
+
+<div class='max-w-[800px] container'>
+<div class='mt-8 mb-2'>
+  <h1 class='text-3xl font-bold'>Guides</h1>
+</div>
+
+<ul class='mb-5'>
+  {% for guide in collections['guide'] | reverse %}
+    <li>
+      <a class='underline text-blue-800 hover:text-red-700 flex justify-between' href='{{ guide.data.page.url }}'>
+        {{ guide.data.title }} <span class='capitalize text-gray-600'>{{ guide.data.type }}</span>
+      </a>
+    </li>
+  {% endfor %}
+</ul>
+</div>
