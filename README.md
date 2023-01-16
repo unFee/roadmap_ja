@@ -6,8 +6,12 @@
 
 ## これは?
 
-https://roadmap.sh/ 様のものを自分にわかりやすいように和訳したもの。
+https://roadmap.sh/ 様のものを自分にわかりやすいように和訳中。
+(2022年版)
 
+## 現在
+
+- [ ] QA
 
 ## Development
 
@@ -16,11 +20,11 @@ Clone the repo and install dependencies:
 ```bash
 git clone git@github.com:kamranahmedse/roadmap.sh.git
 pnpm install
+pnpm upgrade
 ```
 
-Run the project
-
-```shell
+```bash
 pnpm run dev
 ```
 
+http://localhost:8080/ にアクセス。
