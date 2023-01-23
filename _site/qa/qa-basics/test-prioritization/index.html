@@ -321,9 +321,91 @@ pre > code.line-highlight[data-end]:after {
     </p>
 
     <main id='main-content' class="p-1">
-      <h1 id="test-prioritization" tabindex="-1" class="text-5xl font-bold mb-5 mt-2">Test Prioritization</h1>
-<p class="mb-4">テストの優先順位付けとは、どのようにテストケースを実施していくかを整理することです。<br>
-テストケースに優先順位を付けることは、テストにおける時間と予算という2つの重要な制約を満たし、できるだけ早く障害検出率を高めることへつながります。</p>
+      <h2 id="test-prioritization" tabindex="-1" class="text-3xl font-bold mb-3 mt-1">Test Prioritization</h2>
+<details>
+<summary><strong>概要</strong></summary>
+<hr>
+<p class="mb-4">テストの優先順位付けとは最終的に実行するテストケースに順番をつけることである。(TestCasePrioritization)<br>
+テストケースの優先順位付けは時間と予算の制約を満たし、不具合の早期発見率を向上させるために役立ちます。</p>
+<p class="mb-4">ソフトウェアの品質はソフトウェア開発ライフサイクル（SDLC）のソフトウェアテストプロセスを経ることで保証されます。<br>
+ソフトウェアテストをスマートに行うことは、ビジネス要件とステークホルダーの期待に応える、より信頼性が高く、欠陥のない製品を提供するのに役立ちます。<br>
+それ故に、このプロセスにはより多くの時間とリソースが必要となり非常に高コストであるため、認識されたリスクと顧客のニーズに基づいてテストケースに優先順位をつけることで、アプリケーションのテストに必要なテストケースの数を効率的に減らすことが必要になります。</p>
+<hr>
+</details>
+<details>
+<summary><strong>優先度とは</strong></summary>
+<hr>
+<p class="mb-4">優先度としては、大きく4つに分けられます。<br>
+・優先度1：必ず実行しなければならない。（リリース後に新規開発を中断せざるをえないレベルのバグが発生しかねないレベル）<br>
+・優先度2：時間があれば実行するべき。（リリース前のダブルチェックとして実行したいレベル）<br>
+・優先度3：リリース前にテストするほどの重要性ではないもの。（リリース後のテストでも問題ないレベルの重要度）<br>
+・優先度4：影響がほとんど無視できるもの。</p>
+<hr>
+</details>
+<details>
+<summary><strong>テクニック1:カバレッジベースのTCP</strong></summary>
+<hr>
+<p class="mb-4">テストケースの優先順位付けの手法としては以下ようなものが挙げられます。</p>
+<p class="mb-4">・トータルステートメントカバレッジ<br>
+テストケースがカバーするステートメントの総数が多いものを優先する。</p>
+<p class="mb-4">・追加ステートメントカバレッジ<br>
+ステートメントカバレッジが最も大きいケースを選択し、それらのテストケースでカバーしきれなかったステートメントをカバーするテストケースをテスト。<br>
+この手順で全てのステートメントがカバーされるまで繰り返す。</p>
+<p class="mb-4">・トータルブランチカバレッジ<br>
+全条件でのあり得る結果のカバレッジをテストケースの優先順位付けの要因として使用する。</p>
+<p class="mb-4">・追加ブランチカバレッジ<br>
+最大のブランチカバレッジを持つテストケースを選択し、次に、前のテストケースでカバーされずに残ったブランチ結果をカバーするテストケースを反復して選択します。</p>
+<hr>
+</details>
+<details>
+<summary><strong>テクニック2:リスクベースのTCP</strong></summary>
+<hr>
+<p class="mb-4">リスク分析を用いて失敗すると悪い結果を招く可能性のある潜在的な問題領域を特定し、潜在的な問題領域を念頭に置いてテストケースに優先順位を付けます。</p>
+<p class="mb-4">実行ステップ：</p>
+<p class="mb-4">・潜在的な問題のリストアップ<br>
+・各問題の発生確率を割り当て<br>
+・各問題の影響の重大性を計算</p>
+<p class="mb-4">※ アジャイルにおけるリスクベーステスト<br>
+QAチームが各スプリントにおいて、時間と労力の配分決定に苦労している場合、リスクベーステストを利用することは最善策になり得る。<br>
+これは、テスト目標の決定に「定義されたリスク」を利用するテスト戦略であり、結果分析・計画・見積もり・設計・実行・結果報告に有効です。</p>
+<hr>
+</details>
+<details>
+<summary><strong>テクニック3:要求事項ベースTCP</strong></summary>
+<hr>
+<p class="mb-4">ビジネス要件を決定するさまざまな要因に基づいてテストケースを評価し優先順位を付ける。<br>
+要因は機能要件文書で文書化し顧客の要件を詳細に強調する。<br>
+テストケースは、顧客から割り当てられた要求の優先度、複雑さ、揮発性を考慮しながら、顧客中心的な要因に基づいて優先順位をつけて設計される。</p>
+<p class="mb-4">テストケースの優先順位付けに使われる要因は、以下のようなものが挙げられる。</p>
+<p class="mb-4">・顧客割り当て優先度（CP）<br>
+顧客のビジネス価値の観点から見た要求の重要性を示す尺度である。</p>
+<p class="mb-4">・要件ボラティリティ（RV）<br>
+要件が何回変更されたかを示す。</p>
+<p class="mb-4">・要件実装複雑度（IC）<br>
+要件を実装するために必要な労力や時間を示す。</p>
+<p class="mb-4">・FP（Fault Proneness）<br>
+ある要件が以前のバージョンのソフトウェアでどれだけエラーを起こしやすかったかを示す。</p>
+<hr>
+</details>
+<details>
+<summary><strong>テクニック4:履歴ベースTCP</strong></summary>
+<hr>
+<p class="mb-4">主にテストケースの履歴に基づいてテストケースの優先順位を付ける。つまり、テストケースの過去の実行結果がチェックされる。<br>
+これは、テストが失敗する可能性を判断するために使用され、失敗する可能性が高いものは、失敗する可能性が低いものよりも優先的に処理されます。<br>
+テストケースの実行履歴は、現在のサイクルにおいて、どのテストケースをテスト対象として考慮するかを選択するために使用される。</p>
+<hr>
+</details>
+<details>
+<summary><strong>テクニック5:コスト考慮型TCP</strong></summary>
+<hr>
+<p class="mb-4">この手法ではテストケースはコスト要因に基づいて優先順位が決定され、コストの低いテストケースはコストの高いテストケースよりも優先される。</p>
+<p class="mb-4">・リグレッションテストプロセスのコスト<br>
+・要件収集のコスト<br>
+・テストケースを選択するかどうかを分析するコスト<br>
+・テストケースの優先順位付けのコスト<br>
+・テスト実行全体のコスト</p>
+<hr>
+</details>
 <div class='mb-4 mt-7'>   <h1 class='text-sm font-semibold uppercase mb-3 block text-gray-700 border-b border-b-gray-100'>Free Content</h1>   <p class='mb-0.5 text-md'>   <a href='https://www.browserstack.com/guide/test-case-prioritization'  target="_blank" rel="nofollow" class='text-blue-900 hover:text-blue-600'>     <span class='bg-yellow-200 text-yellow-900 text-xs font-semibold mr-1.5 px-1.5 py-0.5 rounded uppercase relative -top-0.5'>Read</span> A Tour of what is Test Prioritization?   </a> </p>
 <p class='mb-0.5 text-md'>   <a href='https://www.professionalqa.com/test-prioritization'  target="_blank" rel="nofollow" class='text-blue-900 hover:text-blue-600'>     <span class='bg-yellow-200 text-yellow-900 text-xs font-semibold mr-1.5 px-1.5 py-0.5 rounded uppercase relative -top-0.5'>Read</span> Test Prioritization   </a> </p>
 <p class='mb-0.5 text-md'>   <a href='https://www.geeksforgeeks.org/test-case-prioritization-in-software-testing/'  target="_blank" rel="nofollow" class='text-blue-900 hover:text-blue-600'>     <span class='bg-yellow-200 text-yellow-900 text-xs font-semibold mr-1.5 px-1.5 py-0.5 rounded uppercase relative -top-0.5'>Read</span> Learn about Test Prioritization   </a> </p>
